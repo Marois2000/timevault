@@ -37,7 +37,7 @@ body {
 
 
 .log {
-  height: 80vh;
+  height: 70vh;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -91,9 +91,9 @@ button {
 
 .totals {
   width: 100%;
-  height: 10vh;
+  height: 20vh;
   background-color: #002c71;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   display: flex;
   color: #ff9900;
@@ -195,3 +195,6 @@ button {
 }
 
 
+input[type="text"] {
+  touch-action: manipulation;
+}
