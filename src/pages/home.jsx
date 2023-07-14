@@ -60,6 +60,8 @@ export const Home = () => {
                 hours: hours,
                 tip: tip,
                 year: date.getFullYear(),
+                day: date.getDate(),
+                month: date.getMonth(),
                 formatdate: currentid
             }).then(() => {
                 setHours(0);
