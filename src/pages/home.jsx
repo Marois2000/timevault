@@ -30,6 +30,16 @@ export const Home = () => {
     })
 
     const getID = () => {
+        
+
+        return date.getFullYear() + "-" + monthString + "-" + dayString;
+    }
+
+    const addEntry = (hours, tip) => {
+        
+
+        let sameDay = false;
+
         let dayString = date.getDate();
         let monthString = date.getMonth()+1;
 
@@ -41,15 +51,7 @@ export const Home = () => {
             monthString = "0" + monthString;
         }
 
-        return date.getFullYear() + "-" + monthString + "-" + dayString;
-    }
-
-    const addEntry = (hours, tip) => {
-        
-
-        let sameDay = false;
-
-        const currentid = getID();
+        const currentid = date.getFullYear() + "-" + monthString + "-" + dayString;
         
 
         console.log(currentid);
