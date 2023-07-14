@@ -10,6 +10,7 @@ export const Home = () => {
     const date = new Date();
     const days = getWeekDays(date);
 
+
     const [hours, setHours] = useState(0);
     const [tip, setTip] = useState(0);
     const [weekHours, setWeekHours] = useState(0);
@@ -28,13 +29,10 @@ export const Home = () => {
         updateFields();
     })
 
-    const addEntry = (hours, tip) => {
-        
-
-        let sameDay = false;
-
+    const getID = () => {
         let dayString = date.getDate();
         let monthString = date.getMonth()+1;
+
         if(dayString.length === 1) {
             dayString = "0" + dayString;
         }
@@ -43,7 +41,17 @@ export const Home = () => {
             monthString = "0" + monthString;
         }
 
-        const currentid = date.getFullYear() + "-" + monthString + "-" + dayString;
+        return date.getFullYear() + "-" + monthString + "-" + dayString;
+    }
+
+    const addEntry = (hours, tip) => {
+        
+
+        let sameDay = false;
+
+        const currentid = getID();
+        
+
         console.log(currentid);
         for(let i = 0; i < docs.length; i++) {
             console.log(docs[i].formatdate + " / " + currentid);
@@ -73,6 +81,8 @@ export const Home = () => {
 
     const updateFields = () => {
         let yearTipTotal = 0;
+        const currentid = getID();
+
 
         for(let i = 0; i < docs.length; i++) {
             if(docs[i].year == date.getFullYear()) {
@@ -86,7 +96,7 @@ export const Home = () => {
         for(let i = 0; i < docs.length; i++) {
             for(let j = 0; j < days.length; j++) {
                 
-                if(docs[i].month == days[j].month && docs[i].day == days[j].date && docs[i].year == days[j].year) {
+                if(docs[i].formatdate == currentid) {
                     tipCount += Number(docs[i].tip);
                     hoursCount += Number(docs[i].hours);
                 }
