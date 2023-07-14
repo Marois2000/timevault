@@ -29,11 +29,6 @@ export const Home = () => {
         updateFields();
     })
 
-    const getID = () => {
-        
-
-        return date.getFullYear() + "-" + monthString + "-" + dayString;
-    }
 
     const addEntry = (hours, tip) => {
         
