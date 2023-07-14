@@ -81,8 +81,7 @@ export const Home = () => {
 
     const updateFields = () => {
         let yearTipTotal = 0;
-        const currentid = getID();
-
+        
 
         for(let i = 0; i < docs.length; i++) {
             if(docs[i].year == date.getFullYear()) {
@@ -96,7 +95,7 @@ export const Home = () => {
         for(let i = 0; i < docs.length; i++) {
             for(let j = 0; j < days.length; j++) {
                 
-                if(docs[i].formatdate == currentid) {
+                if(docs[i].month == days[j].month && docs[i].day == days[j].date && docs[i].year == days[j].year) {
                     tipCount += Number(docs[i].tip);
                     hoursCount += Number(docs[i].hours);
                 }
