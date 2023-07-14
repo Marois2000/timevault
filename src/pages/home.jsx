@@ -69,7 +69,7 @@ export const Home = () => {
                 tip: tip,
                 year: date.getFullYear(),
                 day: date.getDate(),
-                month: date.getMonth(),
+                month: date.getMonth() + 1,
                 formatdate: currentid
             }).then(() => {
                 setHours(0);
