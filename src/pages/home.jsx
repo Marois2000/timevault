@@ -35,16 +35,18 @@ export const Home = () => {
 
         let sameDay = false;
 
-        let dayString = date.getDate();
-        let monthString = date.getMonth()+1;
+        let dayString = String(date.getDate());
+        let monthString = String(date.getMonth()+1);
+        
 
-        if(dayString.length === 1) {
+        if(dayString.length == 1) {
             dayString = "0" + dayString;
         }
 
-        if(monthString.length === 1) {
+        if(monthString.length == 1) {
             monthString = "0" + monthString;
         }
+
 
         const currentid = date.getFullYear() + "-" + monthString + "-" + dayString;
         
