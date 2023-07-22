@@ -3,6 +3,9 @@ import { db } from "../firebase";
 import { doc, getDoc, collection, query, where, getDocs, onSnapshot, addDoc} from "firebase/firestore";
 import { getWeekDays } from "../weekdays";
 import { useNavigate } from "react-router-dom";
+import { Navbar } from '../Navbar';
+
+
 
 export const Home = () => {
     const colRef = collection(db, localStorage.getItem("name"));
@@ -25,7 +28,6 @@ export const Home = () => {
         snapshot.docs.forEach((doc) => {
             docs.push({ ...doc.data(), id: doc.id })
         })
-        console.log(docs);
         updateFields();
     })
 
@@ -51,11 +53,7 @@ export const Home = () => {
         const currentid = date.getFullYear() + "-" + monthString + "-" + dayString;
         
 
-        console.log(currentid);
         for(let i = 0; i < docs.length; i++) {
-            console.log(docs[i].formatdate + " / " + currentid);
-            console.log(docs[i].formatdate === currentid);
-
             if(docs[i].formatdate === currentid) {
                 sameDay = true;
                 break;
@@ -105,19 +103,17 @@ export const Home = () => {
         setWeekTips(tipCount);
     }
 
+    console.log(getWeekDays("2023-07-10"));
 
     return <div className="home">
-        <div className="title">
-            <h1>TimeVault</h1>
-        </div>
+        <Navbar />
         <div className="log">
             <div>
                 <h2>Welcome, {localStorage.getItem("name")}</h2>
                 <input type="text" placeholder="Input Hours"  onChange={(e) => setHours(e.target.value)}/>
                 <input type="text" placeholder="Input Tip" onChange={(e) => setTip(e.target.value)}/>
-                <button onClick={() => addEntry(hours, tip)}>Submit</button>
+                <button className="button" onClick={() => addEntry(hours, tip)}>Submit</button>
                 <p>(This will automatically log this date)</p>
-                <button onClick={() => navigate("/edit")}>Edit Log</button>
             </div>
             
         </div>

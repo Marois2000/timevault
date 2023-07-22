@@ -3,6 +3,8 @@ import { collection, onSnapshot, addDoc, updateDoc, doc} from "firebase/firestor
 import { db } from "../firebase";
 import { getWeekDays } from "../weekdays";
 import { useNavigate } from "react-router-dom";
+import { Navbar } from '../Navbar';
+
 
 
 export const Edit = () => {
@@ -47,17 +49,15 @@ export const Edit = () => {
     }
 
     return <div className="edit">
-        <div className="title">
-            <h1>TimeVault</h1>
-        </div>
+        <Navbar />
         <div className="editfields">
             <div>
                 <h1>Select Date to Edit</h1>
                 <input type="date" name="editdate" id="editdate" onChange={(e) => setDateChoice(e.target.value)}/>
                 <input type="text" placeholder="Input Hours"  onChange={(e) => setHours(e.target.value)}/>
                 <input type="text" placeholder="Input Tip" onChange={(e) => setTip(e.target.value)}/>
-                <button onClick={() => editLog(hours, tip)}>Submit</button>
-                <button onClick={() => navigate("/home")}>Return Home</button>
+                <button className="button" onClick={() => editLog(hours, tip)}>Submit</button>
+                <button className="button" onClick={() => navigate("/home")}>Return Home</button>
             </div>
         </div>
     </div>

@@ -25,16 +25,58 @@ body {
   width: 100%;
   color: #ff9900;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   display: flex;
   height: 10vh;
+}
+
+.title button {
+  background: none;
+  border: none;
+  margin: 10px;
+  color: #ff9900;
+  cursor: pointer;
+}
+
+.title button svg{
+  fill: #ff9900;
 }
 
 .title h1 {
   text-align: center;
   font-size: 3rem;
+  margin: 10px;
 }
 
+.dropdown {
+  position: absolute;
+  top: 10vh;
+  left: 0vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  z-index: 1;
+  border-radius: 15px;
+  background-color: #002b7156;
+  margin-top: 5px;
+}
+
+
+.dropdown ul {
+  width: 70%;
+}
+
+.dropdown li {
+  list-style-type: none;
+  background-color: #ff9900;
+  margin: 5px;
+  width: 100%;
+  border-radius: 10px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
 
 .log {
   height: 70vh;
@@ -69,7 +111,7 @@ input-text:focus {
   box-shadow: 0 0 4px var(--color-primary);
 }
 
-button {
+.button {
   display: inline-block;
   padding: 12px 24px;
   margin: 5%;
@@ -84,7 +126,7 @@ button {
   transition: 0.3s ease;
 }
 
-.log div button:hover {
+.log div .button:hover {
   background-color: var(--color-accent-alt);
   scale: 105%;
 }
@@ -197,4 +239,63 @@ button {
 
 input[type="text"] {
   touch-action: manipulation;
+}
+
+.weekcard {
+  background-color: #002c71;
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  margin: 10px;
+  font-size: .8rem;
+  height: 75px;
+  width: 90vw;
+}
+
+.weekcard .holder {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+}
+
+.weekhours, .weektips {
+  margin: 10px;
+}
+
+.weekcard h1 {
+  font-size: 1rem;
+}
+
+.weekholder {
+  width: 100%;
+}
+
+.week {
+  height: 25px;
+  background-color: #ff9900;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.weekcontainer {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.version {
+  position: absolute;
+  font-size: 1rem;
+  color: white;
+  right: 3vw;
+  bottom: 3vw;
 }

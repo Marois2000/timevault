@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { Home } from './pages/home';
 import { SignIn } from './pages/signin';
 import { Edit } from './pages/edit';
+import { WeeklyView } from './pages/view';
 
 
 
@@ -16,6 +17,7 @@ function App() {
             <Route path='/' element={<SignIn />} />
             <Route path='/home' element={<Home />} />
             <Route path='/edit' element={<Edit />} />
+            <Route path='/weekview' element={<WeeklyView />} />
           </Routes>
         </Router>
     </div>
