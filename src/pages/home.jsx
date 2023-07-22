@@ -4,6 +4,8 @@ import { doc, getDoc, collection, query, where, getDocs, onSnapshot, addDoc} fro
 import { getWeekDays } from "../weekdays";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from '../Navbar';
+import "../App.css";
+
 
 
 
