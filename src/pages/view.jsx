@@ -5,6 +5,7 @@ import { getWeekDays } from "../weekdays";
 import { WeekCard } from "../components/weekcard";
 import { render } from "@testing-library/react";
 import { Navbar } from '../Navbar';
+import "../App.css";
 
 
 
