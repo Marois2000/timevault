@@ -70,16 +70,18 @@ export const WeeklyView = () => {
     }
 
     return (
-        <div className="weekcontainer">
+        <div>
             <Navbar />
-
-            { weekAdded &&
-                <div>
-                    {valuesState.map((value) => (
-                    <WeekCard value={value}/>
-                    ))}
-                 </div>
-            }   
-        </div>        
+            <div className="weekcontainer">
+                { weekAdded &&
+                    <div>
+                        {valuesState.map((value) => (
+                        <WeekCard value={value}/>
+                        ))}
+                    </div>
+                }   
+            </div> 
+        </div>
+               
     )
 }
