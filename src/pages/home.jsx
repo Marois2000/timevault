@@ -37,7 +37,6 @@ export const Home = () => {
     const addEntry = (hours, tip) => {
 
         if(!isNaN(tip) && !isNaN(hours)) {
-            console.log(isNaN(tip) && isNaN(hours));
 
             let sameDay = false;
             let dayString = String(date.getDate());

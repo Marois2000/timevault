@@ -31,22 +31,26 @@ export const Edit = () => {
 
 
     const editLog = (hours, tip) => {
-        let noneFound = true;
-        for(let i = 0; i < docs.length; i++) {
-            console.log(docs[i].formatdate + " / " + dateChoice);
-            if(docs[i].formatdate == dateChoice) {
-                updateDoc(doc(db, localStorage.name, docs[i].id), {
-                    hours: hours,
-                    tip: tip
-                }).then(() => {
-                    alert("Log Updated!");
-                })
-                noneFound = false;
+        if(!isNaN(tip) && !isNaN(hours)) {
+            let noneFound = true;
+            for(let i = 0; i < docs.length; i++) {
+                console.log(docs[i].formatdate + " / " + dateChoice);
+                if(docs[i].formatdate == dateChoice) {
+                    updateDoc(doc(db, localStorage.name, docs[i].id), {
+                        hours: hours,
+                        tip: tip
+                    }).then(() => {
+                        alert("Log Updated!");
+                    })
+                    noneFound = false;
+                }
             }
-        }
 
-        if(noneFound) {
-            alert("No Log Found");
+            if(noneFound) {
+                alert("No Log Found");
+            }
+        } else {
+            alert("Try Again: Please Enter a Number.")
         }
     }
 
