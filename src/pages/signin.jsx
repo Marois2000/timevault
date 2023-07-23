@@ -27,7 +27,7 @@ export const SignIn = () => {
         </div>
 
         <div className="version">
-            <h1>Version 0.9</h1>
+            <h1>Version 1.0</h1>
         </div>
     </div>
 }

@@ -84,6 +84,25 @@ body {
   align-items: center;
   justify-content: center;
   display: flex;
+  flex-direction: column;
+
+}
+
+.log .quote {
+  font-size: .5rem;
+  margin-bottom: 10%;
+  background-color: #002c71;
+  border-radius: 20px;
+  width: 90%;
+  color: #ff9900;
+}
+
+.log .quote h1, .log .quote h3 {
+  margin: 10px;
+}
+
+.log .quote h3 {
+  font-size: .8rem;
 }
 
 .log div {
@@ -91,6 +110,7 @@ body {
   justify-content: center;
   display: flex;
   flex-direction: column;
+  margin-top: 10%;
 }
 
 .log div h2 {
@@ -294,7 +314,7 @@ input[type="text"] {
 
 .version {
   position: absolute;
-  font-size: 1rem;
+  font-size: .8rem;
   color: white;
   right: 3vw;
   bottom: 3vw;

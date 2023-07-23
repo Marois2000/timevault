@@ -5,6 +5,7 @@ import { getWeekDays } from "../weekdays";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from '../Navbar';
 import "../App.css";
+import { quotes } from "../quotes.js";
 
 
 
@@ -14,7 +15,7 @@ export const Home = () => {
     let docs = [];
     const date = new Date();
     const days = getWeekDays(date);
-
+    const rngQuote = Math.floor(Math.random() * quotes.length-1);
 
     const [hours, setHours] = useState(0);
     const [tip, setTip] = useState(0);
@@ -33,55 +34,52 @@ export const Home = () => {
         updateFields();
     })
 
-
     const addEntry = (hours, tip) => {
-        
 
-        let sameDay = false;
+        if(!isNaN(tip) && !isNaN(hours)) {
+            console.log(isNaN(tip) && isNaN(hours));
 
-        let dayString = String(date.getDate());
-        let monthString = String(date.getMonth()+1);
-        
-
-        if(dayString.length == 1) {
-            dayString = "0" + dayString;
-        }
-
-        if(monthString.length == 1) {
-            monthString = "0" + monthString;
-        }
-
-
-        const currentid = date.getFullYear() + "-" + monthString + "-" + dayString;
-        
-
-        for(let i = 0; i < docs.length; i++) {
-            if(docs[i].formatdate === currentid) {
-                sameDay = true;
-                break;
-            } 
-        }
-
-        if (!sameDay) {
-            addDoc(colRef, {
-                hours: hours,
-                tip: tip,
-                year: date.getFullYear(),
-                day: date.getDate(),
-                month: date.getMonth() + 1,
-                formatdate: currentid
-            }).then(() => {
-                setHours(0);
-                setTip(0);
-                alert("Log Added!")
-            })
+            let sameDay = false;
+            let dayString = String(date.getDate());
+            let monthString = String(date.getMonth()+1);
+            
+            if(dayString.length == 1) {
+                dayString = "0" + dayString;
+            }
+    
+            if(monthString.length == 1) {
+                monthString = "0" + monthString;
+            }
+    
+            const currentid = date.getFullYear() + "-" + monthString + "-" + dayString;
+            for(let i = 0; i < docs.length; i++) {
+                if(docs[i].formatdate === currentid) {
+                    sameDay = true;
+                    break;
+                } 
+            }
+    
+            if (!sameDay) {
+                addDoc(colRef, {
+                    hours: hours,
+                    tip: tip,
+                    year: date.getFullYear(),
+                    day: date.getDate(),
+                    month: date.getMonth() + 1,
+                    formatdate: currentid
+                }).then(() => {
+                    setHours(0);
+                    setTip(0);
+                    alert("Log Added!")
+                })
+            }
+        } else {
+            alert("Try Again: Please Enter a Number.")
         }
     }
 
     const updateFields = () => {
         let yearTipTotal = 0;
-        
-
         for(let i = 0; i < docs.length; i++) {
             if(docs[i].year == date.getFullYear()) {
                 yearTipTotal += Number(docs[i].tip);
@@ -105,7 +103,6 @@ export const Home = () => {
         setWeekTips(tipCount);
     }
 
-    console.log(getWeekDays("2023-07-10"));
 
     return <div className="home">
         <Navbar />
@@ -117,7 +114,10 @@ export const Home = () => {
                 <button className="button" onClick={() => addEntry(hours, tip)}>Submit</button>
                 <p>(This will automatically log this date)</p>
             </div>
-            
+            <div className="quote">
+                <h1>{quotes[rngQuote].text}</h1>
+                <h3>-{quotes[rngQuote].from}</h3>
+            </div>
         </div>
         <div className="totals">
             <div>

@@ -28,7 +28,6 @@ export const WeeklyView = () => {
 
         } finally {
             if (!weekAdded) {
-               // addWeek(); // Call addWeek function only once when the component mounts
                 setWeekAdded(true);
             }
         }
