@@ -89,7 +89,7 @@ body {
 }
 
 .log .quote {
-  font-size: .5rem;
+  font-size: .3rem;
   margin-bottom: 10%;
   background-color: #002c71;
   border-radius: 20px;
@@ -102,7 +102,7 @@ body {
 }
 
 .log .quote h3 {
-  font-size: .8rem;
+  font-size: .4rem;
 }
 
 .log div {
