@@ -14,7 +14,7 @@ function App() {
     <div className="App"> 
       <Router>
           <Routes>
-            <Route path='/timevault/' element={<SignIn />} />
+            <Route path='/' element={<SignIn />} />
             <Route path='/home' element={<Home />} />
             <Route path='/edit' element={<Edit />} />
             <Route path='/weekview' element={<WeeklyView />} />
